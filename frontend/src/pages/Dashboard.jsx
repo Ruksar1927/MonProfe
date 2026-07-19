@@ -63,17 +63,17 @@ if (!dashboardData) {
         fontWeight="bold"
         mb={3}
       >
-        Welcome 👋
+        Welcome 
       </Typography>
+          
+      <Grid container spacing={3}>
 
       <Grid size={{ xs: 12, md: 3 }}>
-          <StatCard
+        <StatCard
             title="Users"
             value={dashboardData.total_users}
           />
         </Grid>
-
-      <Grid container spacing={3}>
 
         <Grid size={{ xs: 12, md: 3 }}>
           <StatCard
