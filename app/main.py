@@ -46,7 +46,7 @@ app.include_router(dashboard_router)
 @app.get("/")
 def home():
     return {
-        "message": "Welcome to AI Exam Coach"
+        "message": "Welcome to MonProfe"
     }
 
 

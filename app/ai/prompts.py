@@ -1,214 +1,181 @@
 SUMMARY_PROMPT = """
-You are an expert teacher.
-
-Summarize the following study notes in a clear and structured format.
-
-Focus on:
-- Main concepts
-- Important definitions
-- Key points
-- Exam tips
+You are an expert teacher. Summarize these study notes clearly.
+Include main concepts, definitions, key points and exam tips.
 
 Notes:
 {text}
 """
-
 
 QUIZ_PROMPT = """
-You are an exam paper setter.
+You are an expert exam paper setter. Generate exactly 10 MCQs from the notes.
 
-Generate 10 multiple-choice questions from these notes.
+For each question provide exactly four options: A, B, C, D.
+Do not show the correct answer immediately after any question.
 
-Each question should have:
-- Question
-- Four options
-- Correct answer
+Use this format:
+
+Question 1: ...
+A. ...
+B. ...
+C. ...
+D. ...
+
+Continue through Question 10.
+
+Then provide:
+
+ANSWER KEY:
+1. A
+2. B
+3. C
+...
+
+Rules:
+- Exactly 10 questions.
+- Exactly 4 options per question.
+- One correct answer per question.
+- No explanations between questions.
+- No tables or Markdown headings.
+- Keep questions suitable for exam preparation.
 
 Notes:
 {text}
 """
-
 
 FLASHCARD_PROMPT = """
-Create flashcards from the following notes.
+You are an expert teacher. Create 8 to 10 study flashcards.
 
-Each flashcard should contain:
+Use only this format:
 
-Front:
-Back:
+Question: ...
+Answer: ...
 
-Notes:
+Question: ...
+Answer: ...
+
+Rules:
+- Each card has exactly one Question and one Answer.
+- Do not use Front, Back, bullets, tables, Markdown or numbering.
+- Keep answers short and suitable for revision.
+
+Study Notes:
 {text}
 """
 
-
 EXPLAIN_PROMPT = """
-Explain the following topic in simple language.
-
-Imagine you're teaching a beginner.
+Explain this topic simply as if teaching a beginner.
+Use clear language and helpful examples.
 
 Topic:
 {text}
 """
 
-
 CHAT_PROMPT = """
-You are Exam Coach AI.
-
-You are a friendly AI tutor.
-
+You are 𝑴𝒐𝒏𝑷𝒓𝒐𝒇𝒆, a friendly AI tutor.
 Answer the student's question clearly and accurately.
-
-If possible:
-- Explain step by step.
-- Give examples.
-- Keep the language simple.
-- Help the student prepare for exams.
+Explain step by step when useful, give examples and keep language simple.
 
 Student Question:
 {text}
 """
 
-
 TIMETABLE_PROMPT = """
-You are an expert study planner.
-
-Create a personalized study timetable.
+Create a realistic study timetable from these details.
+Divide work day-wise, include revision and short breaks, and prioritize difficult subjects.
 
 Details:
 {text}
-
-Rules:
-- Divide work day-wise.
-- Include revision sessions.
-- Include short breaks.
-- Prioritize difficult subjects first.
-- Keep the timetable realistic.
 """
-
 
 REVISION_PROMPT = """
-You are an expert exam mentor.
-
-Create a revision plan.
+Create an exam revision plan from these details.
+Include daily targets, revision schedule, important topics and final-day strategy.
 
 Details:
 {text}
-
-Include:
-- Daily targets
-- Revision schedule
-- Important topics
-- Final day strategy
 """
-
 
 MEMORY_PROMPT = """
-You are a memory expert.
+For this topic, generate memory tricks, mnemonics, easy shortcuts and quick revision tips.
 
-For the following topic:
-
+Topic:
 {text}
-
-Generate:
-- Memory tricks
-- Mnemonics
-- Easy shortcuts
-- Quick revision tips
 """
 
-
 IMPORTANT_TOPICS_PROMPT = """
-Analyze the following study material.
-
-{text}
-
-Extract:
+Analyze these study notes and identify:
 - Most important topics
 - Frequently asked concepts
 - High-weightage areas
 - Last-minute revision points
+
+Notes:
+{text}
 """
 
 PDF_CHAT_PROMPT = """
-You are an AI tutor.
-
-Answer ONLY from the provided PDF.
-
-If the answer is not present in the PDF, reply:
-
+You are an AI tutor. Answer ONLY from the provided PDF.
+If the answer is not present, reply:
 "I couldn't find this information in the uploaded PDF."
 
 PDF:
-
 {text}
 
 Question:
-
 {question}
 """
 
 STUDY_PLAN_PROMPT = """
-You are an expert study planner.
-
-Create a detailed study timetable.
-
-Student Information:
+Create a detailed study timetable using:
 
 Subjects:
 {subjects}
 
+Current Date:
+{current_date}
+
 Exam Date:
 {exam_date}
 
-Available Study Hours Per Day:
+Study Hours Per Day:
 {hours}
 
 Instructions:
-
-- Divide the study time evenly.
+- Calculate the remaining time between the current date and exam date.
+- Do not assume a previous start date.
+- Mention the total preparation duration.
+- Divide study time realistically across the remaining time.
 - Give a day-wise timetable.
-- Mention which subject to study.
-- Include revision sessions.
-- Mention important topics to focus on.
+- Mention subjects and important topics.
+- Include revision and short breaks.
 - Keep the schedule realistic.
-- Add short breaks where necessary.
 - End with exam preparation tips.
 """
 
 EXPECTED_QUESTIONS_PROMPT = """
 You are an experienced exam paper setter.
-
-Generate the most expected exam questions from the following notes.
+Generate expected questions from these notes.
 
 Include:
-
-1. Long Answer Questions (5)
-2. Short Answer Questions (10)
-3. Very Short Questions (10)
-4. Viva Questions (20)
+1. 5 Long Answer Questions
+2. 10 Short Answer Questions
+3. 10 Very Short Questions
+4. 20 Viva Questions
 5. Important Topics likely to appear in the exam
 
 Notes:
-
 {text}
 """
 
 WEAK_TOPIC_PROMPT = """
-You are an expert exam coach.
-
-Analyze the following study notes.
-
-Identify:
-
-1. Weak Topics (difficult concepts)
-2. Strong Topics (easy concepts)
+Analyze these study notes and identify:
+1. Weak Topics
+2. Strong Topics
 3. High Priority Topics
 4. Topics requiring revision
 5. Study Tips
 6. Suggested revision order
 
 Notes:
-
 {text}
 """

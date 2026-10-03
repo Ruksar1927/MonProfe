@@ -1,4 +1,5 @@
 from app.ai.client import client
+from datetime import date
 from app.ai.prompts import (
     SUMMARY_PROMPT,
     QUIZ_PROMPT,
@@ -137,11 +138,14 @@ class AIService:
     @staticmethod
     def generate_study_plan(subjects: str, exam_date: str, hours: str):
 
+        current_date = date.today()
+
         prompt = STUDY_PLAN_PROMPT.format(
             subjects=subjects,
+            current_date=current_date,
             exam_date=exam_date,
-            hours=hours,
-        )
+            hours=hours
+   )
 
         response = client.models.generate_content(
             model=AIService.MODEL_NAME,
