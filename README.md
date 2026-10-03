@@ -18,23 +18,23 @@ MonProfe is an AI-powered study assistant that helps students learn smarter from
 
 ### How to Run Locally
 1. Clone the repository
-git clone https://github.com/Ruksar1927/MonProfe.git
-cd MonProfe
+- git clone https://github.com/Ruksar1927/MonProfe.git
+- cd MonProfe
 
 2. Backend Setup
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload
+- python -m venv venv
+- venv\Scripts\activate
+- pip install -r requirements.txt
+- uvicorn app.main:app --reload
 
 3. Frontend Setup
-cd frontend
-npm install
-npm run dev
+- cd frontend
+- npm install
+- npm run dev
 
 4. Environment Variables
 Create a .env file in the root and add:
-GEMINI_API_KEY=your_gemini_api_key_here
+- GEMINI_API_KEY=your_gemini_api_key_here
 SECRET_KEY=your_jwt_secret_key
 
 Backend will run on http://localhost:8000 and frontend on http://localhost:5173
